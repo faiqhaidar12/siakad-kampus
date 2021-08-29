@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="box box-success box-solid">
-            <div class="box-header with-border">
+            <div class="box-header with-border ">
                 <h3 class="box-title">Data <?= $title ?></h3>
 
                 <div class="box-tools pull-right">
@@ -28,19 +28,19 @@
                     <thead>
                         <tr>
                             <th width="50px" class="text-center">No</th>
-                            <th>Fakultas</th>
+                            <th>Gedung</th>
                             <th width="150px" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1;
-                        foreach ($fakultas as $key => $value) { ?>
+                        foreach ($gedung as $key => $value) { ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $value->fakultas ?></td>
+                                <td><?= $value->gedung ?></td>
                                 <td class="text-center">
-                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit<?= $value->id_fakultas ?>"><i class="fa fa-pencil"></i></button>
-                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value->id_fakultas ?>"><i class="fa fa-trash"></i></button>
+                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#edit<?= $value->id_gedung ?>"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value->id_gedung ?>"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -59,15 +59,15 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Add Fakultas</h4>
+                <h4 class="modal-title">Add Gedung</h4>
             </div>
             <div class="modal-body">
                 <?php
-                echo form_open('fakultas/add');
+                echo form_open('gedung/add');
                 ?>
                 <div class="form-group">
-                    <label>Fakultas</label>
-                    <input name="fakultas" class="form-control" placeholder="Fakultas" required>
+                    <label>Gedung</label>
+                    <input name="gedung" class="form-control" placeholder="Gedung" required>
                 </div>
             </div>
             <div class="modal-footer">
@@ -83,22 +83,22 @@
 <!-- /.modal -->
 
 <!-- Modal Edit -->
-<?php foreach ($fakultas as $key => $value) { ?>
-    <div class="modal fade" id="edit<?= $value->id_fakultas ?>">
+<?php foreach ($gedung as $key => $value) { ?>
+    <div class="modal fade" id="edit<?= $value->id_gedung ?>">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Edit Fakultas</h4>
+                    <h4 class="modal-title">Edit Gedung</h4>
                 </div>
                 <div class="modal-body">
                     <?php
-                    echo form_open('fakultas/edit/' . $value->id_fakultas);
+                    echo form_open('gedung/edit/' . $value->id_gedung);
                     ?>
                     <div class="form-group">
-                        <label>Fakultas</label>
-                        <input name="fakultas" value="<?= $value->fakultas ?>" class="form-control" placeholder="Fakultas" required>
+                        <label>Gedung</label>
+                        <input name="gedung" value="<?= $value->gedung ?>" class="form-control" placeholder="Gedung" required>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -115,21 +115,21 @@
 <?php } ?>
 
 <!-- Modal Delete -->
-<?php foreach ($fakultas as $key => $value) { ?>
-    <div class="modal fade" id="delete<?= $value->id_fakultas ?>">
+<?php foreach ($gedung as $key => $value) { ?>
+    <div class="modal fade" id="delete<?= $value->id_gedung ?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Delete Fakultas</h4>
+                    <h4 class="modal-title">Delete Gedung</h4>
                 </div>
                 <div class="modal-body">
-                    Apakah Anda Yakin Ingin Menghapus <b><?= $value->fakultas ?> ?</b>
+                    Apakah Anda Yakin Ingin Menghapus <b><?= $value->gedung ?> ?</b>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
-                    <a href="<?= base_url('fakultas/delete/' . $value->id_fakultas) ?>" class="btn btn-success">Delete</a>
+                    <a href="<?= base_url('gedung/delete/' . $value->id_gedung) ?>" class="btn btn-success">Delete</a>
                 </div>
 
             </div>

@@ -6,6 +6,8 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Master <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                    <li><a href="<?= base_url('gedung') ?> ">Gedung</a></li>
+                    <li><a href="<?= base_url('ruangan') ?> ">Ruangan</a></li>
                     <li><a href="<?= base_url('fakultas') ?> ">Fakultas</a></li>
                     <li><a href="#">Program Studi</a></li>
                     <li><a href="#">Dosen</a></li>
