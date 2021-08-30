@@ -16,7 +16,7 @@
                 <!-- /.box-tools -->
             </div>
             <!-- /.box-header -->
-            <div class="box-body">
+            <div class="box-body" style="overflow-x:auto;">
                 <?php
                 if (session()->getFlashdata('pesan')) {
                     echo '<div class="alert alert-success" role="alert">';

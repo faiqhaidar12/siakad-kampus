@@ -14,6 +14,14 @@ class ModelRuangan extends Model
             ->get()->getResult();
     }
 
+    public function detail_Data($id_ruangan)
+    {
+        return $this->db->table('tbl_ruangan')
+            ->join('tbl_gedung', 'tbl_gedung.id_gedung = tbl_ruangan.id_gedung', 'left')
+            ->where('id_ruangan', $id_ruangan)
+            ->get()->getRowArray();
+    }
+
     public function add($data)
     {
         $this->db->table('tbl_ruangan')->insert($data);

@@ -11,7 +11,7 @@
                 <h3 class="box-title">Data <?= $title ?></h3>
 
                 <div class="box-tools pull-right">
-                    <a href="<?= base_url('ruangan/add') ?>" class="btn btn-box-tool"><i class="fa fa-plus"></i> Add</a>
+                    <a href="<?= base_url('prodi/add') ?>" class="btn btn-box-tool"><i class="fa fa-plus"></i> Add</a>
                 </div>
                 <!-- /.box-tools -->
             </div>
@@ -27,22 +27,26 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th width="50px" class="text-center">No</th>
-                            <th>Gedung</th>
-                            <th>Ruang Kelas</th>
-                            <th width="150px" class="text-center">Action</th>
+                            <th width="10px" class="text-center">No</th>
+                            <th class="text-center">Fakultas</th>
+                            <th class="text-center">Kode Prodi</th>
+                            <th class="text-center">Program Studi</th>
+                            <th class="text-center">Jenjang</th>
+                            <th class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1;
-                        foreach ($ruangan as $key => $value) { ?>
+                        foreach ($prodi as $key => $value) { ?>
                             <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $value->gedung ?></td>
-                                <td><?= $value->ruangan ?></td>
+                                <td><b><?= $value->fakultas ?></b></td>
+                                <td><?= $value->kode_prodi ?></td>
+                                <td><?= $value->prodi ?></td>
+                                <td><?= $value->jenjang ?></td>
                                 <td class="text-center">
-                                    <a href="<?= base_url('ruangan/edit/' . $value->id_ruangan) ?>" class="btn btn-warning btn-sm" data-toggle="modal"><i class="fa fa-pencil"></i></a>
-                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value->id_ruangan ?>"><i class="fa fa-trash"></i></button>
+                                    <a href="<?= base_url('prodi/edit/' . $value->id_prodi) ?>" class="btn btn-warning btn-sm" data-toggle="modal"><i class="fa fa-pencil"></i></a>
+                                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value->id_prodi ?>"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -56,8 +60,8 @@
 </div>
 
 <!-- Modal Delete -->
-<?php foreach ($ruangan as $key => $value) { ?>
-    <div class="modal fade" id="delete<?= $value->id_ruangan ?>">
+<?php foreach ($prodi as $key => $value) { ?>
+    <div class="modal fade" id="delete<?= $value->id_prodi ?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -66,11 +70,11 @@
                     <h4 class="modal-title">Delete <?= $title ?></h4>
                 </div>
                 <div class="modal-body">
-                    Apakah Anda Yakin Ingin Menghapus <b><?= $value->ruangan ?> ?</b>
+                    Apakah Anda Yakin Ingin Menghapus <b><?= $value->prodi ?> ?</b>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">Close</button>
-                    <a href="<?= base_url('ruangan/delete/' . $value->id_ruangan) ?>" class="btn btn-success">Delete</a>
+                    <a href="<?= base_url('prodi/delete/' . $value->id_prodi) ?>" class="btn btn-success">Delete</a>
                 </div>
 
             </div>

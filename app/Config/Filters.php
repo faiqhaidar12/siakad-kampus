@@ -49,6 +49,7 @@ class Filters extends BaseConfig
 					'fakultas', 'fakultas/*',
 					'gedung', 'gedung/*',
 					'ruangan', 'ruangan/*',
+					'prodi', 'prodi/*',
 				]
 			],
 			'toolbar',
