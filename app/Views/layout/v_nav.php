@@ -10,7 +10,7 @@
                     <li><a href="<?= base_url('ruangan') ?> ">Ruangan</a></li>
                     <li><a href="<?= base_url('fakultas') ?> ">Fakultas</a></li>
                     <li><a href="<?= base_url('prodi') ?>">Program Studi</a></li>
-                    <li><a href="#">Dosen</a></li>
+                    <li><a href="<?= base_url('ta') ?>">Tahun Akademik</a></li>
                     <li><a href="#">Mahasiswa</a></li>
                 </ul>
             </li>

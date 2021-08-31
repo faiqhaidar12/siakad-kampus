@@ -50,6 +50,7 @@ class Filters extends BaseConfig
 					'gedung', 'gedung/*',
 					'ruangan', 'ruangan/*',
 					'prodi', 'prodi/*',
+					'ta', 'ta/*',
 				]
 			],
 			'toolbar',
