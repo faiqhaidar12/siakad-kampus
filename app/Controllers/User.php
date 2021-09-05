@@ -48,7 +48,7 @@ class User extends BaseController
             ],
             'foto' => [
                 'label'     => 'Foto',
-                'rules'      => 'uploaded[foto] | max_size[foto,1024] | mime_in[foto,image/png,image/jpeg,image/jpg]',
+                'rules'      => 'uploaded[foto]|max_size[foto,1024]|mime_in[foto,image/png,image/jpeg,image/jpg]',
                 'errors'    => [
                     'uploaded' => '{field} Wajib Diisi !!!',
                     'max_size' => '{field} Max 1024 KB !!!',
@@ -151,6 +151,13 @@ class User extends BaseController
 
     public function delete($id_user)
     {
+
+        //menghapus foto lama
+        $user = $this->ModelUser->detail_data($id_user);
+        if ($user['foto'] != "") {
+            unlink('foto/' . $user['foto']);
+        }
+
         $data = [
             'id_user'   => $id_user,
         ];
