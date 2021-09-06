@@ -27,7 +27,6 @@ class Dosen extends BaseController
     {
         $data = [
             'title'     => 'Add Dosen',
-            'dosen'     => $this->ModelDosen->alldata(),
             'isi'       => 'admin/dosen/v_add'
         ];
         return view('layout/v_wrapper', $data);
@@ -45,7 +44,7 @@ class Dosen extends BaseController
             ],
             'nidn' => [
                 'label'     => 'NIDN',
-                'rules'      => 'required|is_unique[tbl_prodi.kode_prodi]',
+                'rules'      => 'required',
                 'errors'    => [
                     'required' => '{field} Wajib Diisi !!!'
                 ]
@@ -58,8 +57,8 @@ class Dosen extends BaseController
                 ]
             ],
             'nama_dosen' => [
-                'label'     => 'Nama DOsen',
-                'rules'      => 'required|is_unique[tbl_prodi.kode_prodi]',
+                'label'     => 'Nama Dosen',
+                'rules'      => 'required',
                 'errors'    => [
                     'required' => '{field} Wajib Diisi !!!'
                 ]

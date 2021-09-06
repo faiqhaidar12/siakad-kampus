@@ -54,6 +54,7 @@ class Filters extends BaseConfig
 					'matkul', 'matkul/*',
 					'user', 'user/*',
 					'dosen', 'dosen/*',
+					'mahasiswa', 'mahasiswa/*',
 				]
 			],
 			'toolbar',
