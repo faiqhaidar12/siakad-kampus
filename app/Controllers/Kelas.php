@@ -24,7 +24,7 @@ class Kelas extends BaseController
             'kelas'     => $this->ModelKelas->alldata(),
             'dosen'     => $this->ModelDosen->alldata(),
             'prodi'     => $this->ModelProdi->alldata(),
-            'isi'     => 'admin/v_kelas'
+            'isi'     => 'admin/kelas/v_kelas'
         ];
         return view('layout/v_wrapper', $data);
     }
@@ -86,5 +86,40 @@ class Kelas extends BaseController
         $this->ModelKelas->delete_data($data);
         session()->setFlashdata('pesan', 'Data Berhasil Di Delete !!!');
         return redirect()->to(base_url('kelas'));
+    }
+
+    public function rincian_kelas($id_kelas)
+    {
+        $data = [
+            'title'    => 'Rombongan Kelas',
+            'kelas'     => $this->ModelKelas->detail($id_kelas),
+            'mhs'       => $this->ModelKelas->mahasiswa($id_kelas),
+            'jml'       => $this->ModelKelas->jml_mhs($id_kelas),
+            'mhs_tpk'   => $this->ModelKelas->mhs_tdk_ada_kelas(),
+            'isi'     => 'admin/kelas/v_rincian_kelas'
+        ];
+        return view('layout/v_wrapper', $data);
+    }
+
+    public function add_anggota_kelas($id_mhs, $id_kelas)
+    {
+        $data = [
+            'id_mhs'   => $id_mhs,
+            'id_kelas'  => $id_kelas
+        ];
+        $this->ModelKelas->update_mhs($data);
+        session()->setFlashdata('pesan', 'Mahasiswa Berhasil Ditambahkan Ke Kelas !!!');
+        return redirect()->to(base_url('kelas/rincian_kelas/' . $id_kelas));
+    }
+
+    public function delete_anggota_kelas($id_mhs, $id_kelas)
+    {
+        $data = [
+            'id_mhs'   => $id_mhs,
+            'id_kelas'  => null
+        ];
+        $this->ModelKelas->update_mhs($data);
+        session()->setFlashdata('pesan', 'Mahasiswa Berhasil DiHapus Dari Kelas !!!');
+        return redirect()->to(base_url('kelas/rincian_kelas/' . $id_kelas));
     }
 }

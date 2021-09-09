@@ -55,4 +55,30 @@ class Ta extends BaseController
 		session()->setFlashdata('pesan', 'Data Berhasil Di Delete !!!');
 		return redirect()->to(base_url('ta'));
 	}
+
+	//setting tahun akademik
+	public function setting()
+	{
+		$data = [
+			'title'	=> 'Tahun Akademik',
+			'ta' => $this->ModelTa->alldata(),
+			'isi' 	=> 'admin/v_set_ta'
+		];
+		return view('layout/v_wrapper', $data);
+	}
+
+	public function set_status_ta($id_ta)
+	{
+		//reset status ta
+		$this->ModelTa->reset_status_ta();
+
+		//set status ta
+		$data = [
+			'id_ta'		=> $id_ta,
+			'status'	=> 1
+		];
+		$this->ModelTa->edit($data);
+		session()->setFlashdata('pesan', 'Status Tahun Akademik Berhasil Di Ganti !!!');
+		return redirect()->to(base_url('ta/setting'));
+	}
 }

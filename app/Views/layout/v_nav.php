@@ -27,10 +27,10 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Setting <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="<?= base_url('user') ?> ">User</a></li>
-                    <li><a href="<?= base_url('gedung') ?> ">Menu 2</a></li>
+                    <li><a href="<?= base_url('ta/setting') ?> ">Tahun Akademik</a></li>
                 </ul>
             </li>
-            <li><a href="#">About</a></li>
+            <li><a href="<?= base_url('about') ?>">About</a></li>
         <?php } ?>
     </ul>
 </div>

@@ -44,12 +44,17 @@
                             <th>Nama Dosen</th>
                             <th>Tahun Angkatan</th>
                             <th>Jumlah</th>
-                            <th width="150px" class="text-center">Action</th>
+                            <th width="50px" class="text-center">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $no = 1;
-                        foreach ($kelas as $key => $value) { ?>
+                        $db = \Config\Database::connect();
+                        foreach ($kelas as $key => $value) {
+                            $jml = $db->table('tbl_mhs')
+                                ->where('id_kelas', $value['id_kelas'])
+                                ->countAllResults();
+                        ?>
                             <tr>
                                 <td><?= $no++; ?></td>
                                 <td><b><?= $value['nama_kelas'] ?></b></td>
@@ -57,7 +62,9 @@
                                 <td><?= $value['nama_dosen'] ?></td>
                                 <td><?= $value['tahun_angkatan'] ?></td>
                                 <td class="text-center">
-                                    <p class="label bg-green">0</p>
+                                    <p class="label bg-green"><?= $jml ?></p>
+                                    <br>
+                                    <a href="<?= base_url('kelas/rincian_kelas/' . $value['id_kelas']) ?>">Mahasiswa</a>
                                 </td>
                                 <td class="text-center">
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value['id_kelas'] ?>"><i class="fa fa-trash"></i></button>

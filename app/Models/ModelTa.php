@@ -31,4 +31,10 @@ class ModelTa extends Model
             ->where('id_ta', $data['id_ta'])
             ->delete($data);
     }
+
+    public function reset_status_ta()
+    {
+        $this->db->table('tbl_ta')
+            ->update(['status' => 0]);
+    }
 }
