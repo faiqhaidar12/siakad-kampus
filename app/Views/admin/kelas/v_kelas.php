@@ -41,7 +41,7 @@
                             <th width="50px" class="text-center">No</th>
                             <th>Nama Kelas</th>
                             <th>Program Studi</th>
-                            <th>Nama Dosen</th>
+                            <th>Dosen PA</th>
                             <th>Tahun Angkatan</th>
                             <th>Jumlah</th>
                             <th width="50px" class="text-center">Action</th>

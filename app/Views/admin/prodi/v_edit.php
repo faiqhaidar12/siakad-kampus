@@ -66,6 +66,16 @@
                     </select>
                 </div>
 
+                <div class="form-group">
+                    <label>Kaprodi</label>
+                    <select name="ka_prodi" class="form-control">
+                        <option value="<?= $prodi['ka_prodi'] ?>"><?= $prodi['ka_prodi'] ?></option>
+                        <?php foreach ($dosen as $key => $value) { ?>
+                            <option value="<?= $value['nama_dosen'] ?>"><?= $value['nama_dosen'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+
 
             </div>
             <div class="modal-footer">

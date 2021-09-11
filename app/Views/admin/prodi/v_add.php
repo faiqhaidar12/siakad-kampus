@@ -65,7 +65,15 @@
                         <option value="S3">S3</option>
                     </select>
                 </div>
-
+                <div class="form-group">
+                    <label>Kaprodi</label>
+                    <select name="ka_prodi" class="form-control">
+                        <option value="">---Pilih Kaprodi---</option>
+                        <?php foreach ($dosen as $key => $value) { ?>
+                            <option value="<?= $value['nama_dosen'] ?>"><?= $value['nama_dosen'] ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
 
             </div>
             <div class="modal-footer">

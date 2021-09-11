@@ -37,4 +37,12 @@ class ModelTa extends Model
         $this->db->table('tbl_ta')
             ->update(['status' => 0]);
     }
+
+    public function ta_aktif()
+    {
+        return $this->db->table('tbl_ta')
+            ->where('status', 1)
+            ->get()
+            ->getRowArray();
+    }
 }

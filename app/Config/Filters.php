@@ -56,7 +56,8 @@ class Filters extends BaseConfig
 					'dosen', 'dosen/*',
 					'mahasiswa', 'mahasiswa/*',
 					'kelas', 'kelas/*',
-					'about', 'about/*',
+					'jadwalkuliah', 'about/*',
+					'jadwalkuliah', 'jadwalkuliah/*',
 				]
 			],
 			'toolbar',

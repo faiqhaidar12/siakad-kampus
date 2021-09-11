@@ -20,7 +20,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Akademik <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="<?= base_url('kelas') ?> ">Kelas</a></li>
-                    <li><a href="<?= base_url('gedung') ?> ">Menu 2</a></li>
+                    <li><a href="<?= base_url('jadwalkuliah') ?> ">Jadwal Kuliah</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -64,7 +64,7 @@
                                                             } elseif (session()->get('level') == 3) {
                                                                 echo 'Dosen';
                                                             } ?>
-                            <small><?= date('d M Y') ?></small>
+                            <small><?= date('M d Y') ?></small>
                         </p>
                     </li>
                     <!-- Menu Footer-->

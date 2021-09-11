@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ModelProdi;
 use App\Models\ModelFakultas;
+use App\Models\ModelDosen;
 
 class Prodi extends BaseController
 {
@@ -13,6 +14,7 @@ class Prodi extends BaseController
         helper('form');
         $this->ModelProdi = new ModelProdi();
         $this->ModelFakultas = new ModelFakultas();
+        $this->ModelDosen = new ModelDosen();
     }
 
     public function index()
@@ -30,6 +32,7 @@ class Prodi extends BaseController
         $data = [
             'title'     => 'Add Program Studi',
             'fakultas'  => $this->ModelFakultas->alldata(),
+            'dosen'     => $this->ModelDosen->alldata(),
             'isi'       => 'admin/prodi/v_add'
         ];
         return view('layout/v_wrapper', $data);
@@ -41,6 +44,7 @@ class Prodi extends BaseController
             'title'     => 'Edit Program Studi',
             'fakultas'  => $this->ModelFakultas->alldata(),
             'prodi'     => $this->ModelProdi->detail_Data($id_prodi),
+            'dosen'     => $this->ModelDosen->alldata(),
             'isi'       => 'admin/prodi/v_edit'
         ];
         return view('layout/v_wrapper', $data);
@@ -78,6 +82,13 @@ class Prodi extends BaseController
                     'required' => '{field} Wajib Diisi !!!'
                 ]
             ],
+            'ka_prodi' => [
+                'label'     => 'Kaprodi',
+                'rules'      => 'required',
+                'errors'    => [
+                    'required' => '{field} Wajib Diisi !!!'
+                ]
+            ],
         ])) {
             //jika valid
             $data = [
@@ -85,6 +96,8 @@ class Prodi extends BaseController
                 'kode_prodi' =>  $this->request->getPost('kode_prodi'),
                 'prodi' =>  $this->request->getPost('prodi'),
                 'jenjang' =>  $this->request->getPost('jenjang'),
+                'ka_prodi' =>  $this->request->getPost('ka_prodi'),
+
 
             ];
             $this->ModelProdi->add($data);
@@ -121,6 +134,13 @@ class Prodi extends BaseController
                     'required' => '{field} Wajib Diisi !!!'
                 ]
             ],
+            'ka_prodi' => [
+                'label'     => 'Kaprodi',
+                'rules'      => 'required',
+                'errors'    => [
+                    'required' => '{field} Wajib Diisi !!!'
+                ]
+            ],
         ])) {
             //jika valid
             $data = [
@@ -129,6 +149,7 @@ class Prodi extends BaseController
                 'kode_prodi' =>  $this->request->getPost('kode_prodi'),
                 'prodi' =>  $this->request->getPost('prodi'),
                 'jenjang' =>  $this->request->getPost('jenjang'),
+                'ka_prodi' =>  $this->request->getPost('ka_prodi'),
 
             ];
             $this->ModelProdi->edit($data);

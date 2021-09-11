@@ -32,6 +32,7 @@
                             <th class="text-center">Kode Prodi</th>
                             <th class="text-center">Program Studi</th>
                             <th class="text-center">Jenjang</th>
+                            <th class="text-center">Kaprodi</th>
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -44,6 +45,7 @@
                                 <td><?= $value->kode_prodi ?></td>
                                 <td><?= $value->prodi ?></td>
                                 <td><?= $value->jenjang ?></td>
+                                <td><?= $value->ka_prodi ?></td>
                                 <td class="text-center">
                                     <a href="<?= base_url('prodi/edit/' . $value->id_prodi) ?>" class="btn btn-warning btn-sm" data-toggle="modal"><i class="fa fa-pencil"></i></a>
                                     <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?= $value->id_prodi ?>"><i class="fa fa-trash"></i></button>
